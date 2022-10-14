@@ -7,6 +7,7 @@ const exportBtn = document.getElementById("export-btn")
 const linkList = document.getElementById("link-list")
 const locallyStoredList = JSON.parse(localStorage.getItem("myList"))
 let myList= []
+
 if (locallyStoredList) {
     myList=locallyStoredList
     displayAsList(myList)
@@ -54,8 +55,8 @@ exportBtn.addEventListener("click",function(){
         chrome.downloads.download({
             url: "data:text/plain," + myString,
             filename: "data.txt",
-            conflictAction: "uniquify", // or "overwrite" / "prompt"
-            saveAs: false, // true gives save-as dialogue
+            conflictAction: "uniquify",
+            saveAs: false,
         }, function(downloadId) {
             console.log("Downloaded item with ID", downloadId)
         })
