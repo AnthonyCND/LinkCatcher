@@ -52,7 +52,6 @@ exportBtn.addEventListener("click",function(){
     }
     if(myString){
         chrome.downloads.download({
-            //url: "data:text/plain," + myString,
             url: "data:text/plain," + myString,
             filename: "data.txt",
             conflictAction: "uniquify", // or "overwrite" / "prompt"
